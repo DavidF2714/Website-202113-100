@@ -13,4 +13,4 @@ This is the information about the website
 
 ## Games
 
-We will be working on the ** Pacman/Cannon** and **Snake** Games
+We will be working on the **Pacman/Cannon** and **Snake** Games
