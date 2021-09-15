@@ -4,6 +4,8 @@ Collaboration Website for **TC1001S**
 ## Authors
 
 - David Flores
+- Salvador Milanés
+- Gabriel Córdova
 
 ## Website
 
