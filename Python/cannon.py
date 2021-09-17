@@ -6,6 +6,7 @@ Exercises
 2. Vary the effect of gravity. [DONE]
 3. Apply gravity to the targets.
 4. Change the speed of the ball. [DONE]
+5. Dont let the game end when target reaches left. [DONE]
 
 """
 
@@ -74,8 +75,7 @@ def move():
     # Detect when a target reaches the left side
     for target in targets:
         if not inside(target):
-           #targets.remove(target)
-            return
+           targets.remove(target)
 
     ontimer(move, 50)
 
