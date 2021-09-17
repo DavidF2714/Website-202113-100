@@ -6,7 +6,7 @@ Exercises
 2. How can you make the snake go around the edges?
 3. How would you move the food? [ALREADY SATISFIED]
 4. Change the snake to respond to arrow keys. [ALREADY SATISFIED]
-*5. Make snake and fruit be different colors for every new game. []
+*5. Make snake and fruit be different colors for every new game. [DONE]
 """
 
 from turtle import *
