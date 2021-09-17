@@ -5,7 +5,7 @@ Exercises
 1. Keep score by counting target hits.
 2. Vary the effect of gravity. [DONE]
 3. Apply gravity to the targets.
-4. Change the speed of the ball.
+4. Change the speed of the ball. [DONE]
 
 """
 
@@ -22,8 +22,8 @@ def tap(x, y):
     if not inside(ball):
         ball.x = -199
         ball.y = -199
-        speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 25
+        speed.x = (x + 400) / 25
+        speed.y = (y + 400) / 25
 
 def inside(xy):
     "Return True if xy within screen."
