@@ -3,7 +3,7 @@
 Exercises
 
 1. Keep score by counting target hits.
-2. Vary the effect of gravity.
+2. Vary the effect of gravity. [DONE]
 3. Apply gravity to the targets.
 4. Change the speed of the ball.
 
@@ -57,7 +57,7 @@ def move():
 
     # Move the cannon shot
     if inside(ball):
-        speed.y -= 0.35
+        speed.y -= 0.50
         ball.move(speed)
 
     # Make a copy of the existing target list before redrawing

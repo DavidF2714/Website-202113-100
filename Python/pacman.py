@@ -2,10 +2,10 @@
 
 Exercises
 
-1. Change the board.
-2. Change the number of ghosts.
-3. Change where pacman starts.
-4. Make the ghosts faster/slower.
+1. Change the board. [DONE]
+2. Change the number of ghosts. [DONE]
+3. Change where pacman starts. [DONE]
+4. Make the ghosts faster/slower. [DONE]
 5. Make the ghosts smarter.
 
 """
@@ -18,14 +18,16 @@ state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
 aim = vector(5, 0)
-pacman = vector(-80, -40)
+pacman = vector(-40, 0)
+"Initial pos [pos] (point) and direction (course)"
 ghosts = [
-    [vector(-180, 160), vector(5, 0)],
-    [vector(-180, -160), vector(0, 5)],
-    [vector(100, 160), vector(0, -5)],
+    [vector(-180, 160), vector(10, 0)], 
+    [vector(-180, -160), vector(0,5)],
+    [vector(100, 160), vector(0, -10)],
     [vector(100, -160), vector(-5, 0)],
-    [vector(-160, -160), vector(-5,-5)],
-    [vector(-100,160),vector(1,-4)]]
+    [vector(-160, -160), vector(-10,-10)],
+    [vector(-100,160),vector(10,-5)]]
+"Empty tile = 0; and tile with pellet = 1"
 tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0,
@@ -112,8 +114,9 @@ def move():
         pacman.move(aim)
 
     index = offset(pacman)
-
-    if tiles[index] == 1:
+    
+    "{ On get pellet -> update score, draw square on pos. }"
+    if tiles[index] == 1: 
         tiles[index] = 2
         state['score'] += 1
         x = (index % 20) * 20 - 200
@@ -128,7 +131,12 @@ def move():
         if valid(point + course):
             point.move(course)
         else:
+            "Move in any of 4 dir's, n ammount of units (greater n -> more distance per tick; therefore, higher speed)"
             options = [
+                vector(10, 0),
+                vector(-10, 0),
+                vector(0, 10),
+                vector(0, -10),
                 vector(5, 0),
                 vector(-5, 0),
                 vector(0, 5),
