@@ -1,4 +1,5 @@
 # Website-202113-100
+
 Collaboration Website for **TC1001S**
 
 ## Authors
@@ -9,8 +10,23 @@ Collaboration Website for **TC1001S**
 
 ## Website
 
-This is the information about the website
+This is our git repository for **"Semana Tec: El Arte de la Programación"**
 
 ## Games
 
-We will be working on the **Pacman, Cannon** and **Snake** videogames
+We will be working on the following videogames:
+
+- **Pacman**
+	- David: Changes the board and add more phantoms
+	- Salvador: Changes the speed of the phantoms and make them smarter
+	- Gabriel: Changes the starting position of pacman
+
+- **Cannon**
+	- David: Makes the game infinite
+	- Salvador: Changes colors of targets and cannon, adds scoreboard
+	- Gabriel: Changes the speed of projectile, adds gravity to the cannon
+
+- **Snake**
+	- David: Changes the speed of the snake
+	- Salvador: Adds random colors for snake and food, adds WASD controls 
+	- Gabriel: 
