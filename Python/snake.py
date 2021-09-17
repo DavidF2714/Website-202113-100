@@ -47,7 +47,6 @@ def move():
     colors = clrs
     "Move snake forward one segment."
     head = snake[-1].copy()
-    print("working")
     head.move(aim)
 
     if head in snake:

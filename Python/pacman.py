@@ -21,12 +21,12 @@ aim = vector(5, 0)
 pacman = vector(-40, 0)
 "Initial pos [pos] (point) and direction (course)"
 ghosts = [
-    [vector(-180, 160), vector(10, 0)], 
-    [vector(-180, -160), vector(0,5)],
-    [vector(100, 160), vector(0, -10)],
-    [vector(100, -160), vector(-5, 0)],
-    [vector(-160, -160), vector(-10,-10)],
-    [vector(-100,160),vector(10,-5)]]
+    [vector(-180, 160), vector(10, 0),'red'], 
+    [vector(-180, -160), vector(0,5),'orange'],
+    [vector(100, 160), vector(0, -10),'green'],
+    [vector(100, -160), vector(-5, 0),'lightblue'],
+    [vector(-160, -160), vector(-10,-10),'purple'],
+    [vector(-100,160),vector(10,-5),'pink']]
 "Empty tile = 0; and tile with pellet = 1"
 tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -73,17 +73,19 @@ def offset(point):
 
 def valid(point):
     "Return True if point is valid in tiles."
-    index = offset(point)
+    try:
+        index = offset(point)
+        if tiles[index] == 0:
+            return False
 
-    if tiles[index] == 0:
+        index = offset(point + 19)
+
+        if tiles[index] == 0:
+            return False
+
+        return point.x % 20 == 0 or point.y % 20 == 0
+    except:
         return False
-
-    index = offset(point + 19)
-
-    if tiles[index] == 0:
-        return False
-
-    return point.x % 20 == 0 or point.y % 20 == 0
 
 def world():
     "Draw world using path."
@@ -102,6 +104,19 @@ def world():
                 path.up()
                 path.goto(x + 10, y + 10)
                 path.dot(2, 'white')
+         
+def random_dir():
+    options = [
+        vector(10, 0),
+        vector(-10, 0),
+        vector(0, 10),
+        vector(0, -10),
+        vector(5, 0),
+        vector(-5, 0),
+        vector(0, 5),
+        vector(0, -5),
+    ]
+    return choice(options)
 
 def move():
     "Move pacman and all ghosts."
@@ -127,40 +142,34 @@ def move():
     goto(pacman.x + 10, pacman.y + 10)
     dot(20, 'yellow')
 
-    for point, course in ghosts:
-        if valid(point + course):
-            point.move(course)
+    for ghost in ghosts:
+        "Move in any of 4 dir's, n ammount of units (greater n -> more distance per tick; therefore, higher speed)" 
+        if valid(ghost[0] + ghost[1]):
+            ghost[0].move(ghost[1])
         else:
-            "Move in any of 4 dir's, n ammount of units (greater n -> more distance per tick; therefore, higher speed)"
             options = [
-                vector(10, 0),
-                vector(-10, 0),
-                vector(0, 10),
-                vector(0, -10),
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
-                vector(0, -5),
+            random_dir()
             ]
             plan = choice(options)
-            course.x = plan.x
-            course.y = plan.y
+            ghost[1].x = plan.x
+            ghost[1].y = plan.y
 
         up()
-        goto(point.x + 10, point.y + 10)
-        dot(20, 'red')
+        goto(ghost[0].x + 10, ghost[0].y + 10)
+        dot(20, ghost[2])
 
     update()
 
-    for point, course in ghosts:
-        if abs(pacman - point) < 20:
+    for ghost in ghosts:
+        if abs(pacman - ghost[0]) < 20:
             return
 
     ontimer(move, 100)
 
-def change(x, y):
-    "Change pacman aim if valid."
-    if valid(pacman + vector(x, y)):
+
+def change(actor, x, y):
+    "Change actor's aim if valid."
+    if valid(actor + vector(x, y)):
         aim.x = x
         aim.y = y
 
@@ -171,10 +180,14 @@ writer.goto(160, 160)
 writer.color('white')
 writer.write(state['score'])
 listen()
-onkey(lambda: change(5, 0), 'Right')
-onkey(lambda: change(-5, 0), 'Left')
-onkey(lambda: change(0, 5), 'Up')
-onkey(lambda: change(0, -5), 'Down')
+onkey(lambda: change(pacman,  5, 0), 'Right')
+onkey(lambda: change(pacman, -5, 0), 'Left')
+onkey(lambda: change(pacman,  0, 5), 'Up')
+onkey(lambda: change(pacman,  0, -5), 'Down')
+onkey(lambda: change(pacman,  5, 0), 'd')
+onkey(lambda: change(pacman, -5, 0), 'a')
+onkey(lambda: change(pacman,  0, 5), 'w')
+onkey(lambda: change(pacman,  0, -5), 's')
 world()
 move()
 done()
