@@ -18,7 +18,7 @@ state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
 aim = vector(5, 0)
-pacman = vector(-80, -40)
+pacman = vector(-40, 0)
 "Initial pos [pos] (point) and direction (course)"
 ghosts = [
     [vector(-180, 160), vector(10, 0)], 
