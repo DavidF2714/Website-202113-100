@@ -20,7 +20,7 @@ We will be working on the following videogames:
 
 - **Pacman**
 	- David: Changes the board and add more phantoms
-	- Salvador: Changes the speed of the phantoms and make them smarter
+	- Salvador: Changes the speed of the phantoms
 	- Gabriel: Changes the starting position of pacman
 
 - **Cannon**
