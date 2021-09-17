@@ -52,7 +52,7 @@ def move():
 
     square(food.x, food.y, 9, 'green')
     update()
-    ontimer(move, 100)
+    ontimer(move, 10)
 
 setup(420, 420, 370, 0)
 hideturtle()
