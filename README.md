@@ -31,4 +31,4 @@ We will be working on the following videogames:
 - **Snake**
 	- David: Changes the speed of the snake
 	- Salvador: Adds random colors for snake and food, adds WASD controls 
-	- Gabriel: 
+	- Gabriel: Make the snake go around the edges
