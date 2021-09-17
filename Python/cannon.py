@@ -3,7 +3,7 @@
 Exercises
 
 1. Keep score by counting target hits.
-2. Vary the effect of gravity.
+2. Vary the effect of gravity. [DONE]
 3. Apply gravity to the targets.
 4. Change the speed of the ball.
 

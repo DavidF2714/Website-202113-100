@@ -4,7 +4,7 @@ Exercises
 
 1. Change the board. [DONE]
 2. Change the number of ghosts. [DONE]
-3. Change where pacman starts.
+3. Change where pacman starts. [DONE]
 4. Make the ghosts faster/slower. [DONE]
 5. Make the ghosts smarter.
 
