@@ -3,7 +3,7 @@
 Exercises
 
 1. How do you make the snake faster or slower? [DONE]
-2. How can you make the snake go around the edges?
+2. How can you make the snake go around the edges? [DONE]
 3. How would you move the food? [ALREADY SATISFIED]
 4. Change the snake to respond to arrow keys. [ALREADY SATISFIED]
 *5. Make snake and fruit be different colors for every new game. [DONE]
@@ -50,10 +50,23 @@ def move():
     print("working")
     head.move(aim)
 
-    if not inside(head) or head in snake:
+    if head in snake:
         square(head.x, head.y, 9, 'red')
         update()
         return
+
+    if head.x == -200:
+        head.x = 190
+        update()
+    elif head.x == 190:
+        head.x = -200
+        update()
+    if head.y == -200:
+        head.y = 190
+        update()
+    elif head.y == 190:
+        head.y = -200
+        update()
 
     snake.append(head)
 
