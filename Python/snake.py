@@ -71,15 +71,11 @@ def move():
 
     square(food.x, food.y, 9, colors[1])
     update()
-<<<<<<< HEAD
     
-    #We chane the speed of the snake making this value higher
+    #We change the speed of the snake making this value higher
     #Higher value = Slower
     #Lower value = Faster 
     ontimer(move, 50) 
-=======
-    ontimer(move, 100)
->>>>>>> origin
 
 setup(420, 420, 370, 0)
 hideturtle()
